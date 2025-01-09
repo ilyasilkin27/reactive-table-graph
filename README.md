@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Проект "Таблица с графиками"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Таблица с показателями и графиками на основе данных. В таблице отображаются значения за текущий день, вчера и за неделю, с возможностью отображения графика для каждого показателя.
 
-## Available Scripts
+## Структура проекта
 
-In the project directory, you can run:
+Проект состоит из нескольких компонентов, каждый из которых отвечает за свою часть:
 
-### `npm start`
+- **App.js** — главный компонент, который управляет состоянием и передает данные в дочерние компоненты.
+- **Table.js** — компонент, отображающий таблицу с данными.
+- **TableRow.js** — компонент, отвечающий за отображение строки таблицы с данными.
+- **ChartRow.js** — компонент, который отображает график для выбранной строки.
+- **data.js** — файл с данными для отображения.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Запуск проекта
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Клонирование репозитория:
+   ```bash
+   git clone <ссылка на репозиторий>
+   ```
 
-### `npm test`
+2. Установка зависимостей:
+   ```bash
+   npm install
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Запуск проекта:
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+Проект будет доступен по адресу [http://localhost:3000](http://localhost:3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Структура данных
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Каждый элемент в массиве `data` представляет собой объект с полями:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **category** — название показателя (например, "Выручка, руб").
+- **today** — значение показателя за текущий день.
+- **yesterday** — значение показателя за вчерашний день.
+- **week** — значение показателя за текущую неделю.
+- **chartData** — массив данных для отображения графика.
 
-### `npm run eject`
+## Описание компонентов
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **App.js**
+Главный компонент, который управляет состоянием и отслеживает, какой ряд выбран для отображения графика.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Table.js**
+Компонент, который отображает саму таблицу. Для каждой строки таблицы отображаются данные за текущий день, вчера и за неделю, а также разница между ними.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **TableRow.js**
+Компонент для рендеринга одной строки таблицы. Вычисляет разницу между значениями и отображает её в виде процента.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **ChartRow.js**
+Компонент, который отображает график для выбранной строки. Использует библиотеку **Highcharts** для отображения данных.
 
-## Learn More
+### **data.js**
+Файл, в котором хранится набор данных для отображения в таблице.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Библиотеки
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+В проекте используются следующие библиотеки:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React** — библиотека для построения пользовательских интерфейсов.
+- **Highcharts** — библиотека для отображения графиков.
+- **Highcharts React** — обертка для использования Highcharts в React-приложениях.
