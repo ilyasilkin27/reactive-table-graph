@@ -1,8 +1,16 @@
-import React from "react";
-import TableRow from "./TableRow";
-import ChartRow from "./ChartRow";
+import type { FC } from 'react';
+import TableRow from './TableRow';
+import ChartRow from './ChartRow';
+import type { DataRow } from '../data';
+import React from 'react';
 
-const Table = ({ data, visibleRowIndex, onRowClick }) => (
+export interface TableProps {
+  data: DataRow[];
+  visibleRowIndex: number | null;
+  onRowClick: (index: number, row: DataRow) => void;
+}
+
+const Table: FC<TableProps> = ({ data, visibleRowIndex, onRowClick }) => (
   <table className="data-table">
     <thead>
       <tr>
@@ -14,7 +22,7 @@ const Table = ({ data, visibleRowIndex, onRowClick }) => (
     </thead>
     <tbody>
       {data.map((row, index) => (
-        <React.Fragment key={index}>
+        <React.Fragment key={row.category}>
           <TableRow
             row={row}
             index={index}
@@ -28,4 +36,4 @@ const Table = ({ data, visibleRowIndex, onRowClick }) => (
   </table>
 );
 
-export default Table;
+export default Table; 

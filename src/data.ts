@@ -1,4 +1,12 @@
-export const data = [
+export interface DataRow {
+  category: string;
+  today: number;
+  yesterday: number;
+  week: number;
+  chartData: number[];
+}
+
+export const data: DataRow[] = [
   {
     category: 'Выручка, руб',
     today: 500521,
@@ -69,4 +77,4 @@ export const data = [
     week: 32,
     chartData: [1, 5, 10, 15, 20],
   },
-];
+]; 
