@@ -57,7 +57,3 @@ src/
 ## Зависимости
 - React, TypeScript, Vite, Bun
 - highcharts, highcharts-react-official
-
----
-
-**Made with ❤️ using Bun, Vite & React**
